@@ -1,0 +1,26 @@
+﻿@model Proiect.Models.Recenzie
+
+@{
+    ViewBag.Title = "Edit";
+    
+}
+
+<h2>Edit</h2>
+
+
+<form method="post" action="/Recenzie/Update">
+    @Html.LabelFor(m => m.Descriere)
+    <br />
+    @Html.TextBoxFor(m => m.Descriere)
+    <br />
+    @Html.LabelFor(m => m.Rating)
+    <br />
+    @Html.TextBoxFor(m => m.Rating)
+    <br />
+    <input type="hidden" name="RecenzieId" value="@Model.RecenzieId" />
+    <button type="submit"> Salveaza modificarile</button>
+
+</form>
+<form method="post" action="/Recenzie/Delete/@Model.ProdusId">
+    <button type="submit">Sterge acesta recenzie</button>
+</form>

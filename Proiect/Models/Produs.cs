@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace Proiect.Models
 {
@@ -10,6 +11,7 @@ namespace Proiect.Models
         public int ProdusId { get; set; }
         public string Denumire{ get; set; }
         public float Pret { get; set; }
+        public Factura Factura { get; set; }
         public ICollection<Recenzie> Recenzie { get; set; }
         public virtual ICollection<Magazin> Magazine { get; set; }
     }

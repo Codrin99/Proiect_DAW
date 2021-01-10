@@ -11,22 +11,15 @@
     <p>
         @produs.Denumire
     </p>
-    @Html.Label("Pret", "Pret:")
     <br />
-    <p>
-        @produs.Pret
-    </p>
-    @using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
+
+    @using (Html.BeginForm(actionName: "Details", controllerName: "Produs", method: FormMethod.Get,
 routeValues: new { id = produs.ProdusId }))
     {
-        <button class="btn btn-primary">Editeaza acest produs</button>
+        <button class="btn btn-primary">Detalii</button>
     }
-    @using (Html.BeginForm(actionName: "New", controllerName: "Recenzie", method: FormMethod.Get,
-routeValues: new { id = produs.ProdusId }))
-    {
-<button class="btn btn-primary">Adauga REcenzie</button>
-    }
+
 </div>
 }
-<p><a href="/Recenzie/New">Adauga REcenzie</a></p>
+
 <p><a href="/Produs/New">Adauga Produs</a></p>

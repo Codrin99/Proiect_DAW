@@ -17,12 +17,14 @@ namespace Proiect.Controllers
             ViewBag.Recenzie = recenzie;
             return View();
         }
+        [Authorize(Roles = "User,Admin")]
         [Route( "{controller}/{id}")]
         public ActionResult New(int id)
         {
             ViewData["ProdusId"] = id;
             return View();
         }
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         public ActionResult Create(Recenzie r)
         {
@@ -33,11 +35,13 @@ namespace Proiect.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        [Authorize(Roles = "User,Admin")]
         public ActionResult Edit(int id)
         {
             Recenzie recenzie = db.Recenzie.Find(id);
             return View(recenzie);
         }
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         public ActionResult Update(Recenzie r)
         {
@@ -51,6 +55,7 @@ namespace Proiect.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         public ActionResult Delete(int id)
         {

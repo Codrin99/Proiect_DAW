@@ -1,0 +1,30 @@
+﻿@model Proiect.Models.Produs
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Denumire</h2>
+<p>Pret: @Model.Pret LEI</p>
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
+routeValues: new { id = @Model.ProdusId }))
+{
+    <button class="btn btn-primary">Editeaza produsul</button>
+}
+@using (Html.BeginForm(actionName: "New", controllerName: "Recenzie", method: FormMethod.Get,
+routeValues: new { id = @Model.ProdusId }))
+{
+    <button class="btn btn-primary">Adauga Recenzie</button>
+}
+@foreach (var recenzie in Model.Recenzie)
+{
+    <p>Nota: @recenzie.Rating / 10</p>
+    <p>@recenzie.Descriere</p>
+    using (Html.BeginForm(actionName: "Edit", controllerName: "Recenzie", method: FormMethod.Get,
+routeValues: new { id = recenzie.RecenzieId }))
+    {
+        <button class="btn btn-primary">Editeaza Recenzia</button>
+    }
+    <br />
+    <br />
+}
+

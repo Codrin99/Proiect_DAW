@@ -9,6 +9,7 @@ namespace Proiect.Models
     {
         public int FacturaId { get; set; }
         public float Valoare { get; set; }
+        public string Adresa { get; set; }
         public string NumeClient { get; set; }
         public ICollection<Produs> Produse { get; set; }
 

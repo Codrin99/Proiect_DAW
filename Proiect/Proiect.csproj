@@ -176,7 +176,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AdresaFacturare.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Magazin.cs" />
     <Compile Include="Models\Produs.cs" />
@@ -245,6 +244,8 @@
     <Content Include="Views\Produs\New.cshtml" />
     <Content Include="Views\Produs\Edit.cshtml" />
     <Content Include="Views\Recenzie\New.cshtml" />
+    <Content Include="Views\Produs\Details.cshtml" />
+    <Content Include="Views\Recenzie\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

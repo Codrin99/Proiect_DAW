@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Proiect.Models;
+using System.Data.Entity;
 
 namespace Proiect.Controllers
 {
@@ -17,10 +19,23 @@ namespace Proiect.Controllers
             ViewBag.Produs = produse;
             return View();
         }
+        [AllowAnonymous]
+        public ActionResult Details(int? id)
+        {
+            if (id.HasValue)
+            {
+                var produs = db.Produs.Include(i => i.Recenzie).FirstOrDefault(m => m.ProdusId == id);
+                return View(produs);
+               
+            }
+            return HttpNotFound("Missing id paramater");
+        }
+        [Authorize(Roles = "Admin")]
         public ActionResult New()
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(Produs p)
         {
@@ -30,12 +45,14 @@ namespace Proiect.Controllers
             db.SaveChanges();
             return RedirectToAction("Index","Home");
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             Produs produs = db.Produs.Find(id);
             ViewBag.Produs = produs;
             return View(produs);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Update(Produs p)
         {
@@ -50,6 +67,7 @@ namespace Proiect.Controllers
             db.SaveChanges();
             return RedirectToAction("Index","Home");
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id)
         {
