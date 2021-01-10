@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proiect.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,12 @@ namespace Proiect.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
+            List<Produs> produse = db.Produs.ToList();
+            ViewBag.Produs = produse;
             return View();
         }
 

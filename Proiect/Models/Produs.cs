@@ -10,8 +10,7 @@ namespace Proiect.Models
         public int ProdusId { get; set; }
         public string Denumire{ get; set; }
         public float Pret { get; set; }
-
-        public ICollection<Recenzie> Recenzii { get; set; }
+        public ICollection<Recenzie> Recenzie { get; set; }
         public virtual ICollection<Magazin> Magazine { get; set; }
     }
 }

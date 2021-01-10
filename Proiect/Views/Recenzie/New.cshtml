@@ -1,0 +1,18 @@
+﻿@model Proiect.Models.Recenzie
+@{
+    ViewBag.Title = "NewRecenzie";
+}
+
+<h2>NewRecenzie</h2>
+
+<form method="post" action="/Recenzie/Create">
+    @Html.LabelFor(m => m.Descriere)
+    <br />
+    @Html.TextBoxFor(m => m.Descriere)
+    <br />
+    @Html.LabelFor(m => m.Rating)
+    <br />
+    @Html.TextBoxFor(m => m.Rating)
+    <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
+    <button type="submit">Adauga recenzie</button>
+</form>

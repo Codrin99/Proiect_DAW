@@ -10,7 +10,7 @@ namespace Proiect.Models
         public int RecenzieId { get; set; }
         public string Descriere { get; set; }
         public int Rating { get; set; }
-
-        
+        public int ProdusId { get; set; }
+        public Produs Produs  { get; set; }
     }
 }

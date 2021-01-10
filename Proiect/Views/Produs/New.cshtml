@@ -1,0 +1,18 @@
+﻿@model Proiect.Models.Produs
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+<form method="post" action="/Produs/Create">
+@Html.LabelFor(m => m.Denumire)
+<br />
+@Html.TextBoxFor(m =>m.Denumire)
+<br />
+@Html.LabelFor(m => m.Pret)
+<br />
+@Html.TextBoxFor(m =>m.Pret)
+<br />
+<button type="submit">Adauga Produs</button>
+</form>

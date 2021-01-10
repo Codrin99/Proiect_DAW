@@ -1,0 +1,27 @@
+﻿@model Proiect.Models.Produs
+
+@{
+    ViewBag.Title = "Edit";
+    string textRecenzie = " foarte bun";
+    var produs = ViewBag.Produs;
+}
+
+<h2>Edit</h2>
+
+
+<form method="post" action="/Produs/Update">
+    @Html.LabelFor(m => m.Denumire)
+    <br />
+    @Html.TextBoxFor(m => m.Denumire)
+    <br />
+    @Html.LabelFor(m => m.Pret)
+    <br />
+    @Html.TextBoxFor(m => m.Pret)
+    <br />
+    <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
+    <button type="submit"> Salveaza modificarile</button>
+
+</form>
+<form method="post" action="/Produs/Delete/@Model.ProdusId">
+    <button type="submit">Sterge acest produs</button>
+</form>

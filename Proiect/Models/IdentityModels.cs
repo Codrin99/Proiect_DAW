@@ -42,6 +42,7 @@ namespace Proiect.Models
         protected override void Seed(ApplicationDbContext ctx)
         {
             ctx.Magazin.Add(new Magazin { DenumireMagazin = "Altex" });
+            ctx.Recenzie.Add(new Recenzie { Descriere = "Foarte bun !!", Rating = 10});
             ctx.Produs.Add(new Produs { Denumire = "Figider Arctic A++", Pret = 950 });
             ctx.SaveChanges();
             base.Seed(ctx);
