@@ -13,9 +13,22 @@
     </tr>
     @foreach (var magazin in ViewBag.Magazin)
     {
-        <tr>
-            <td>@magazin.DenumireMagazin</td>
-        </tr>
+<tr>
+    <td>@magazin.DenumireMagazin</td>
+    <td>@magazin.Oras</td>
+    @if (User.IsInRole("Admin"))
+    {
+        <td>
+            <form method="post" action="/Magazin/Edit/@magazin.MagazinId">
+                <button type="submit">Editeaza magazin</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" action="/Magazin/Delete/@magazin.MagazinId">
+                <button type="submit">Sterge magazin</button>
+            </form>
+        </td>
+    }
+</tr>
     }
 </table>
-<br />

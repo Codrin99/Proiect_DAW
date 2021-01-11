@@ -10,6 +10,11 @@
     <br />
     @Html.TextBoxFor(m => m.DenumireMagazin)
     <br />
+    @Html.LabelFor(m => m.Oras)
+    <br />
+    @Html.TextBoxFor(m => m.Oras)
+    <br />
+
     <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
     <button type="submit">Adauga Magazin</button>
 </form>

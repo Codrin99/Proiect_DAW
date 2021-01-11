@@ -51,6 +51,7 @@ namespace Proiect.Controllers
                 return View("Edit", m);
             Magazin magazin = db.Magazin.Single(s => s.MagazinId == m.MagazinId);
             magazin.DenumireMagazin = m.DenumireMagazin;
+            magazin.Oras = m.Oras;
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }

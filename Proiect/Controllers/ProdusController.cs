@@ -81,6 +81,7 @@ namespace Proiect.Controllers
             db.SaveChanges();
             return RedirectToAction("Index","Home");
         }
+        [Authorize(Roles = "Admin")]
         [Route("{controller}/{id}")]
         public ActionResult AtribuireMagazin(int id)
         {
@@ -89,6 +90,7 @@ namespace Proiect.Controllers
             ViewBag.Magazin = magazin;
             return View(magazin);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Atribui(Produs p)
         {

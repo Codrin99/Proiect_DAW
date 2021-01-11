@@ -14,10 +14,12 @@
     @Html.LabelFor(m => m.Denumire)
     <br />
     @Html.TextBoxFor(m => m.Denumire)
+    @Html.ValidationMessageFor(m => m.Denumire)
     <br />
     @Html.LabelFor(m => m.Pret)
     <br />
     @Html.TextBoxFor(m => m.Pret)
+    @Html.ValidationMessageFor(m => m.Pret)
     <br />
     <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
     <button type="submit"> Salveaza modificarile</button>

@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MagazinController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProdusController.cs" />
@@ -178,11 +179,13 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Factura.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Magazin.cs" />
     <Compile Include="Models\Produs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Recenzie.cs" />
+    <Compile Include="Models\Validare.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -251,6 +254,8 @@
     <Content Include="Views\Produs\AtribuireMagazin.cshtml" />
     <Content Include="Views\Magazin\Edit.cshtml" />
     <Content Include="Views\Magazin\ListaMagazine.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Image\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

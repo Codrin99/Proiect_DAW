@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Proiect.Models
 {
@@ -13,8 +14,10 @@ namespace Proiect.Models
             this.Magazine = new HashSet<Magazin>();
         }
         public int ProdusId { get; set; }
+        [Required]
         public string Denumire { get; set; }
-        public float Pret { get; set; }
+        [Validare]
+        public string Pret { get; set; }
         public Factura Factura { get; set; }
         public ICollection<Recenzie> Recenzie { get; set; }
         public int MagazinId { get; set; }

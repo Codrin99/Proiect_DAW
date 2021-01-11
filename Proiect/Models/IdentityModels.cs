@@ -43,7 +43,7 @@ namespace Proiect.Models
     { // custom initializer
         protected override void Seed(ApplicationDbContext ctx)
         {
-            ctx.Produs.Add(new Produs { Denumire = "Figider Arctic A++", Pret = 950  });
+            ctx.Produs.Add(new Produs { Denumire = "Figider Arctic A++", Pret = "950"  });
             ctx.SaveChanges();
             base.Seed(ctx);
         }

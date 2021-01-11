@@ -1,7 +1,25 @@
-﻿
+﻿@model Proiect.Models.Magazin
+
+
 @{
     ViewBag.Title = "Edit";
+
 }
 
 <h2>Edit</h2>
 
+
+<form method="post" action="/Magazin/Update">
+    @Html.LabelFor(m => m.DenumireMagazin)
+    <br />
+    @Html.TextBoxFor(m => m.DenumireMagazin)
+    <br />
+    @Html.LabelFor(m => m.Oras)
+    <br />
+    @Html.TextBoxFor(m => m.Oras)
+    <br />
+    <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
+    <input type="hidden" name="MagazinId" value="@Model.MagazinId" />
+    <button type="submit"> Salveaza modificarile</button>
+
+</form>

@@ -4,17 +4,20 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-
 namespace Proiect.Models
 {
-    public class Magazin
+    public class Image
     {
-        public int MagazinId { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string DenumireMagazin { get; set; }
+        public string Denumire { get; set; }
+
         [Required]
-        public string Oras { get; set; }
+        public byte[] Data { get; set; }
+        [Required]
+        public string Path { get; set; }
+
         public int ProdusId { get; set; }
-        public virtual ICollection<Produs> Produse { get; set; }
+        public Produs Produs { get; set; }
     }
 }
