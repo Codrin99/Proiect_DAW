@@ -3,18 +3,18 @@
     ViewBag.Title = "New";
 }
 
-<h2>New</h2>
+<h2>Adauga un produs nou</h2>
 
 <form method="post" action="/Produs/Create">
     @Html.LabelFor(m => m.Denumire)
     <br />
-    @Html.TextBoxFor(m => m.Denumire)
+    @Html.TextBoxFor(m => m.Denumire, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Denumire)
     <br />
     @Html.LabelFor(m => m.Pret)
     <br />
-    @Html.TextBoxFor(m => m.Pret)
+    @Html.TextBoxFor(m => m.Pret, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Pret)
     <br />
-    <button type="submit">Adauga Produs</button>
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Adauga produs</p></button>
 </form>

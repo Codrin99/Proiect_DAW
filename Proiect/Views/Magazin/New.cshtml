@@ -4,19 +4,19 @@
     ViewBag.Title = "NewRecenzie";
 }
 
-<h2>NewRecenzie</h2>
+<h2>Adauga un magazin nou</h2>
 <form method="post" action="/Magazin/Create">
     @Html.LabelFor(m => m.DenumireMagazin)
     <br />
-    @Html.TextBoxFor(m => m.DenumireMagazin)
+    @Html.TextBoxFor(m => m.DenumireMagazin, new { @class = "form-control"})
     @Html.ValidationMessageFor(m => m.DenumireMagazin)
     <br />
     @Html.LabelFor(m => m.Oras)
     <br />
-    @Html.TextBoxFor(m => m.Oras)
+    @Html.TextBoxFor(m => m.Oras, new { @class = "form-control"})
     @Html.ValidationMessageFor(m => m.Oras)
     <br />
 
     <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
-    <button type="submit">Adauga Magazin</button>
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Adauga magazin</p></button>
 </form>

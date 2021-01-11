@@ -7,24 +7,25 @@
     var produs = ViewBag.Produs;
 }
 
-<h2>Edit</h2>
+<h2>Editeaza date despre acest produs</h2>
 
 
 <form method="post" action="/Produs/Update">
     @Html.LabelFor(m => m.Denumire)
     <br />
-    @Html.TextBoxFor(m => m.Denumire)
+    @Html.TextBoxFor(m => m.Denumire, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Denumire)
     <br />
     @Html.LabelFor(m => m.Pret)
     <br />
-    @Html.TextBoxFor(m => m.Pret)
+    @Html.TextBoxFor(m => m.Pret, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Pret)
-    <br />
     <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
-    <button type="submit"> Salveaza modificarile</button>
+    <br />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Salveaza modificarile</p></button>
 
 </form>
+<br />
 <form method="post" action="/Produs/Delete/@Model.ProdusId">
-    <button type="submit">Sterge acest produs</button>
+     <button type="submit" class="btn btn-dark" style="background-color:rgb(55, 55, 55);"><p style="color:white; margin-bottom:-1px;">Sterge acest produs</p></button>
 </form>

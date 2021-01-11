@@ -12,16 +12,16 @@
 <form method="post" action="/Magazin/Update">
     @Html.LabelFor(m => m.DenumireMagazin)
     <br />
-    @Html.TextBoxFor(m => m.DenumireMagazin)
+    @Html.TextBoxFor(m => m.DenumireMagazin, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.DenumireMagazin)
     <br />
     @Html.LabelFor(m => m.Oras)
     <br />
-    @Html.TextBoxFor(m => m.Oras)
+    @Html.TextBoxFor(m => m.Oras, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Oras)
     <br />
     <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
     <input type="hidden" name="MagazinId" value="@Model.MagazinId" />
-    <button type="submit"> Salveaza modificarile</button>
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(44, 44, 44);"><p style="color:white; margin-bottom:-1px;">Salveaza Modificarile</p></button>
 
 </form>

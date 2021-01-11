@@ -100,7 +100,6 @@ namespace Proiect.Controllers
             produs.MagazinId = p.MagazinId;
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
-
         }
     }
 }

@@ -4,34 +4,38 @@
     ViewBag.Title = "NewRecenzie";
 }
 
-<h2>Atribuie magazin</h2>
-<br />
-<br />
 <h2>Magazine Disponibile</h2>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th> Denumire Magazin</th>
-    </tr>
+<table class="table">
+    <thead class="thead-dark">
+        <tr style="font-weight:bold; font-size:20px;">
+            <th scope="col">ID</th>
+            <th scope="col"> Denumire Magazin</th>
+            <th scope="col">Oras</th>
+        </tr>
+    </thead>
     @foreach (var magazin in ViewBag.Magazin)
     {
-        <tr>
+        <tr style="font-size:16px;">
             <td>@magazin.MagazinId</td>
             <td>@magazin.DenumireMagazin</td>
+            <td>@magazin.Oras</td>
         </tr>
     }
 </table>
 <br />
 <br />
 <form method="post" action="/Produs/Atribui">
-    <p>Introdu Id Magazin</p>
-    <input type="text" name="MagazinId" value="" />
-    <p>Introdu nume magazin</p>
-    <input type="text" name="DenumireMagazin" value="" />
+    <p style="font-size:16px;">Id Magazin</p>
+    <input class="form-control" type="text" name="MagazinId" value="" />
+    <br />
+    <p style="font-size:16px;">Nume magazin</p>
+    <input class="form-control" type="text" name="DenumireMagazin" value="" />
+    <br />
+    <p style="font-size:16px;">Oras</p>
+    <input class="form-control" type="text" name="Oras" value="" />
     <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
-    <button type="submit">Atribuie produsul acestui magazin</button>
+    <br />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(44, 44, 44);"><p style="color:white; margin-bottom:-1px;">Atribuie produsul acestui magazin</p></button>
 
 </form>
-
-

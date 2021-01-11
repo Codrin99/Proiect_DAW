@@ -7,28 +7,33 @@
 
 <h2>Magazine </h2>
 
-<table>
-    <tr>
-        <th> Denumire Magazin</th>
-    </tr>
+<table class="table">
+    <thead class="thead-dark">
+        <tr style="font-weight:bold; font-size:20px;">
+            <th>#</th>
+            <th> Denumire Magazin</th>
+            <th>Oras</th>
+        </tr>
+    </thead>
     @foreach (var magazin in ViewBag.Magazin)
     {
-<tr>
-    <td>@magazin.DenumireMagazin</td>
-    <td>@magazin.Oras</td>
-    @if (User.IsInRole("Admin"))
-    {
-        <td>
-            <form method="post" action="/Magazin/Edit/@magazin.MagazinId">
-                <button type="submit">Editeaza magazin</button>
-            </form>
-        </td>
-        <td>
-            <form method="post" action="/Magazin/Delete/@magazin.MagazinId">
-                <button type="submit">Sterge magazin</button>
-            </form>
-        </td>
-    }
-</tr>
-    }
+    <tr style="font-size:16px;">
+        <td>@magazin.MagazinId</td>
+        <td>@magazin.DenumireMagazin</td>
+        <td>@magazin.Oras</td>
+        @if (User.IsInRole("Admin"))
+        { 
+            <td>
+                <form method="post" action="/Magazin/Edit/@magazin.MagazinId">
+                    <button type="submit" class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Editeaza magazin</p></button>
+                </form>
+            </td>
+            <td>
+                <form method="post" action="/Magazin/Delete/@magazin.MagazinId">
+                    <button type="submit" class="btn btn-dark" style="background-color:rgb(44, 44, 44);"><p style="color:white; margin-bottom:-1px;">Sterge magazin</p></button>
+                </form>
+            </td>
+        }
+    </tr>
+     }
 </table>
