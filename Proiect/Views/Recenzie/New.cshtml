@@ -1,22 +1,26 @@
 ﻿@model Proiect.Models.Recenzie
 @using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = "NewRecenzie";
+    ViewBag.Title = "Recenzie Noua";
 }
 
-<h2>NewRecenzie</h2>
+<h2>Scrie o recenzie produsului nostru</h2>
 
 <form method="post" action="/Recenzie/Create">
     @Html.LabelFor(m => m.Descriere)
     <br />
-    @Html.TextBoxFor(m => m.Descriere)
-    @Html.ValidationMessageFor(m => m.Descriere)
+    <div class="form-group" style="width:100%;">
+        @Html.TextBoxFor(m => m.Descriere, new { @class = "form-control", style = "width:600px;" })
+        @Html.ValidationMessageFor(m => m.Descriere)
+    </div>
     <br />
     @Html.LabelFor(m => m.Rating)
     <br />
-    @Html.TextBoxFor(m => m.Rating)
+    @Html.TextBoxFor(m => m.Rating, new { @class = "form-control", style = "width:10%;" })
     @Html.ValidationMessageFor(m => m.Rating)
+
     <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
     <input type="hidden" name="UserId" value="@User.Identity.GetUserId()" />
-    <button type="submit">Adauga recenzie</button>
+    <br />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Adauga recenzia</p></button>
 </form>

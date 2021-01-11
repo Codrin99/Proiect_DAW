@@ -31,7 +31,7 @@ namespace Proiect.Controllers
         {
             
             if (!ModelState.IsValid)
-                return View("NewRecenzie", r);
+                return View("New", r);
             db.Recenzie.Add(r);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");

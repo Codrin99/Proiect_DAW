@@ -6,48 +6,69 @@
 
 <h2 style="font-weight:bold;">@Model.Denumire</h2>
 <p style="font-size:18px;">Pretul produsului este de: @Model.Pret LEI</p>
+<br />
 
-<div class="btn-group" role="toolbar" aria-label="Basic example">
-
-    @using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
-    routeValues: new { id = @Model.ProdusId }))
-    {
-        <button class="btn btn-secondary">Editeaza produsul</button>
-    }
-
-    @using (Html.BeginForm(actionName: "New", controllerName: "Magazin", method: FormMethod.Get,
-    routeValues: new { id = @Model.ProdusId }))
-    {
-        <button class="btn btn-secondary">Adauga magazin</button>
-    }
-
-    @using (Html.BeginForm(actionName: "AtribuireMagazin", controllerName: "Produs", method: FormMethod.Get,
-    routeValues: new { id = @Model.ProdusId }))
-    {
-        <button class="btn btn-secondary">Atribuie produsul unui magazin</button>
-    }
-
-</div>
-
-    @using (Html.BeginForm(actionName: "New", controllerName: "Recenzie", method: FormMethod.Get,
-    routeValues: new { id = @Model.ProdusId }))
-    {
-        <button class="btn btn-primary">Adauga Recenzie</button>
-    }
-
-
-    @foreach (var recenzie in Model.Recenzie)
-    {
-        <p>@recenzie.User.UserName</p>
-        <p>Nota: @recenzie.Rating / 10</p>
-        <p>@recenzie.Descriere</p>
-        using (Html.BeginForm(actionName: "Edit", controllerName: "Recenzie", method: FormMethod.Get,
-    routeValues: new { id = recenzie.RecenzieId }))
+<div style="display:flex;">
+    <div>
+        @using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
+        routeValues: new { id = @Model.ProdusId }))
         {
-            <button class="btn btn-primary">Editeaza Recenzia</button>
+        <button class="btn btn-dark" style="background-color:rgb(66, 66, 66);"><p style="color:white; margin-bottom:-1px;">Editeaza produsul</p></button>
         }
+    </div>
+    <div>
+        @using (Html.BeginForm(actionName: "New", controllerName: "Magazin", method: FormMethod.Get,
+        routeValues: new { id = @Model.ProdusId }))
+        {
+        <button class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Adauga magazin</p></button>
+        }
+
         <br />
-        <br />
+    </div>
+    <div>
+        @using (Html.BeginForm(actionName: "AtribuireMagazin", controllerName: "Produs", method: FormMethod.Get,
+        routeValues: new { id = @Model.ProdusId }))
+        {
+            <button class="btn btn-dark" style="background-color:rgb(111, 111, 111);"><p style="color:white; margin-bottom:-1px;">Atribuie produsul unui magazin</p></button>
+        }
+    </div>
+    <br />
+    <br />
+</div>
+<br />
+
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Recenzie", method: FormMethod.Get,
+routeValues: new { id = @Model.ProdusId }))
+{
+    <button class="btn btn-dark" style="background-color:rgb(122, 122, 122);"><p style="color:white; margin-bottom:-1px;">Adauga recenzie</p></button>
+}
+<br />
+<br />
+<p style="font-weight:bold; font-size:19px;">Recenzii:</p>
+<br />
+@foreach (var recenzie in Model.Recenzie)
+{<div style="display:flex">
+        <div>
+            <!--<img src="img_avatar.png" alt="Avatar" class="avatar" style="width: 50px; height: 50px; border-radius: 50%;vertical-align: middle;">-->
+        </div>
+        <div>
+            <p style="font-weight:bold; font-size: 18px;">User: @recenzie.User.UserName</p>
+            <p style="font-weight:bold; font-size: 16px;">Nota: @recenzie.Rating / 10</p>
+            <p style="font-size: 15px;">@recenzie.Descriere</p>
+        </div>
+    </div>
+    using (Html.BeginForm(actionName: "Edit", controllerName: "Recenzie", method: FormMethod.Get,
+routeValues: new { id = recenzie.RecenzieId }))
+    {
+        if (User.Identity.GetUserId() == recenzie.UserId || User.IsInRole("Admin"))
+        {
+            <button class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Editeaza Recenzia</p></button>
+        }
+
     }
     <br />
     <br />
+}
+<br />
+<br />
