@@ -1,0 +1,26 @@
+﻿@model Proiect.Models.Factura
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Adauga un produs nou</h2>
+
+<form method="post" action="/Factura/Create">
+    @Html.LabelFor(m => m.Adresa)
+    <br />
+    @Html.TextBoxFor(m => m.Adresa, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Adresa)
+    <br />
+    @Html.LabelFor(m => m.NumeClient)
+    <br />
+    @Html.TextBoxFor(m => m.NumeClient, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.NumeClient)
+    <br />
+    @Html.LabelFor(m => m.Valoare)
+    <br />
+    <input class="form-control" type="text" name="Valoare" value="@ViewData["Pret"]" />
+    @Html.ValidationMessageFor(m => m.NumeClient)
+    <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
+    <br />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Adauga Factura</p></button>
+</form>

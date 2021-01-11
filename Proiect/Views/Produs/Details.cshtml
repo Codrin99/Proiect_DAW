@@ -13,14 +13,14 @@
         @using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
         routeValues: new { id = @Model.ProdusId }))
         {
-        <button class="btn btn-dark" style="background-color:rgb(66, 66, 66);"><p style="color:white; margin-bottom:-1px;">Editeaza produsul</p></button>
+            <button class="btn btn-dark" style="background-color:rgb(66, 66, 66);"><p style="color:white; margin-bottom:-1px;">Editeaza produsul</p></button>
         }
     </div>
     <div>
         @using (Html.BeginForm(actionName: "New", controllerName: "Magazin", method: FormMethod.Get,
         routeValues: new { id = @Model.ProdusId }))
         {
-        <button class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Adauga magazin</p></button>
+            <button class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Adauga magazin</p></button>
         }
 
         <br />
@@ -30,6 +30,13 @@
         routeValues: new { id = @Model.ProdusId }))
         {
             <button class="btn btn-dark" style="background-color:rgb(111, 111, 111);"><p style="color:white; margin-bottom:-1px;">Atribuie produsul unui magazin</p></button>
+        }
+    </div>
+    <div>
+        @using (Html.BeginForm(actionName: "New", controllerName: "Factura", method: FormMethod.Get,
+        routeValues: new { id = @Model.ProdusId }))
+        {
+            <button class="btn btn-dark" style="background-color:rgb(111, 111, 111);"><p style="color:white; margin-bottom:-1px;">Atribuie produsul unei facturi</p></button>
         }
     </div>
     <br />

@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MagazinController.cs" />
@@ -256,6 +257,9 @@
     <Content Include="Views\Magazin\ListaMagazine.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Image\UploadFile.cshtml" />
+    <Content Include="Views\Factura\New.cshtml" />
+    <Content Include="Views\Factura\ListaFacturi.cshtml" />
+    <Content Include="Views\Factura\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,32 @@
+﻿@model Proiect.Models.Factura
+
+
+@{
+    ViewBag.Title = "Edit";
+
+}
+
+<h2>Edit</h2>
+
+
+<form method="post" action="/Factura/Update">
+    @Html.LabelFor(m => m.Adresa)
+    <br />
+    @Html.TextBoxFor(m => m.Adresa, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Adresa)
+    <br />
+    @Html.LabelFor(m => m.NumeClient)
+    <br />
+    @Html.TextBoxFor(m => m.NumeClient, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.NumeClient)
+    <br />
+    @Html.LabelFor(m => m.Valoare)
+    <br />
+    @Html.TextBoxFor(m => m.Valoare, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Valoare)
+    <br />
+    <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
+    <input type="hidden" name="FacturaId" value="@Model.FacturaId" />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(44, 44, 44);"><p style="color:white; margin-bottom:-1px;">Salveaza Modificarile</p></button>
+
+</form>

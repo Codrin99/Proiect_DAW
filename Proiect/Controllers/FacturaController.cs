@@ -7,14 +7,14 @@ using System.Web.Mvc;
 
 namespace Proiect.Controllers
 {
-    public class MagazinController : Controller
+    public class FacturaController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
         // GET: Produs
         public ActionResult Index()
         {
-            List<Magazin> magazin = db.Magazin.ToList();
-            ViewBag.Magazin = magazin;
+            List<Factura> factura = db.Factura.ToList();
+            ViewBag.Factura = factura;
             return View();
         }
         [Authorize(Roles = "Admin")]
@@ -22,36 +22,39 @@ namespace Proiect.Controllers
         public ActionResult New(int id)
         {
             ViewData["ProdusId"] = id;
+            Produs produs = db.Produs.Find(id);
+            ViewData["Pret"] = produs.Pret;
             return View();
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create(Magazin m)
+        public ActionResult Create(Factura f)
         {
 
             if (!ModelState.IsValid)
-                return View("New", m);
-            db.Magazin.Add(m);
+                return View("New", f);
+            db.Factura.Add(f);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
-            Magazin magazin = db.Magazin.Find(id);
+            Factura factura = db.Factura.Find(id);
             if (!User.IsInRole("Admin"))
                 return HttpNotFound("You don't have acces to modify this ");
-            return View(magazin);
+            return View(factura);
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Update(Magazin m)
+        public ActionResult Update(Factura f)
         {
             if (!ModelState.IsValid)
-                return View("Edit", m);
-            Magazin magazin = db.Magazin.Single(s => s.MagazinId == m.MagazinId);
-            magazin.DenumireMagazin = m.DenumireMagazin;
-            magazin.Oras = m.Oras;
+                return View("Edit", f);
+            Factura factura = db.Factura.Single(s => s.FacturaId == f.FacturaId);
+            factura.Valoare = f.Valoare;
+            factura.Adresa = f.Adresa;
+            factura.NumeClient = f.NumeClient;
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
@@ -59,17 +62,17 @@ namespace Proiect.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            Magazin magazin = db.Magazin.Find(id);
-            db.Magazin.Remove(magazin);
+            Factura factura = db.Factura.Find(id);
+            db.Factura.Remove(factura);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult ListaMagazine()
+        public ActionResult ListaFacturi()
         {
-            var magazin = db.Magazin.ToList();
+            var facturi = db.Factura.ToList();
 
-            ViewBag.Magazin = magazin;
-            return View(magazin);
+            ViewBag.Factura = facturi;
+            return View(facturi);
         }
     }
 }

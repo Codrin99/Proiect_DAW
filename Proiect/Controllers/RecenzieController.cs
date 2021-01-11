@@ -23,6 +23,7 @@ namespace Proiect.Controllers
         public ActionResult New(int id)
         {
             ViewData["ProdusId"] = id;
+
             return View();
         }
         [Authorize(Roles = "User,Admin")]
