@@ -9,6 +9,7 @@ namespace Proiect.Models
     {
         public int MagazinId { get; set; }
         public string DenumireMagazin { get; set; }
+        public int ProdusId { get; set; }
         public virtual ICollection<Produs> Produse { get; set; }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model Proiect.Models.Magazin
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "NewRecenzie";
+}
+
+<h2>NewRecenzie</h2>
+<form method="post" action="/Magazin/Create">
+    @Html.LabelFor(m => m.DenumireMagazin)
+    <br />
+    @Html.TextBoxFor(m => m.DenumireMagazin)
+    <br />
+    <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
+    <button type="submit">Adauga Magazin</button>
+</form>

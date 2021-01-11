@@ -12,5 +12,7 @@ namespace Proiect.Models
         public int Rating { get; set; }
         public int ProdusId { get; set; }
         public Produs Produs  { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

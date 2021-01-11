@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +30,8 @@ namespace Proiect.Models
         public DbSet<Recenzie> Recenzie { get; set; }
         public DbSet<Magazin> Magazin { get; set; }
         public DbSet<Factura> Factura { get; set; }
-  
+
+
 
         public static ApplicationDbContext Create()
         {
@@ -41,9 +43,7 @@ namespace Proiect.Models
     { // custom initializer
         protected override void Seed(ApplicationDbContext ctx)
         {
-            ctx.Magazin.Add(new Magazin { DenumireMagazin = "Altex" });
-            ctx.Recenzie.Add(new Recenzie { Descriere = "Foarte bun !!", Rating = 10});
-            ctx.Produs.Add(new Produs { Denumire = "Figider Arctic A++", Pret = 950 });
+            ctx.Produs.Add(new Produs { Denumire = "Figider Arctic A++", Pret = 950  });
             ctx.SaveChanges();
             base.Seed(ctx);
         }

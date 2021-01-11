@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Proiect.Controllers
 {
@@ -28,7 +29,7 @@ namespace Proiect.Controllers
         [HttpPost]
         public ActionResult Create(Recenzie r)
         {
-            Console.WriteLine(r.ProdusId);
+            
             if (!ModelState.IsValid)
                 return View("NewRecenzie", r);
             db.Recenzie.Add(r);
@@ -37,8 +38,11 @@ namespace Proiect.Controllers
         }
         [Authorize(Roles = "User,Admin")]
         public ActionResult Edit(int id)
-        {
+        {   
             Recenzie recenzie = db.Recenzie.Find(id);
+            if(!User.IsInRole("Admin"))
+                if (recenzie.UserId!= User.Identity.GetUserId())
+                    return HttpNotFound("You don't have acces to modify this ");
             return View(recenzie);
         }
         [Authorize(Roles = "User,Admin")]
@@ -47,7 +51,7 @@ namespace Proiect.Controllers
         {
             if (!ModelState.IsValid)
                 return View("Edit", r);
-
+            Console.WriteLine(r.UserId);
             Recenzie recenzie = db.Recenzie.Single(s => s.RecenzieId == r.RecenzieId);
             recenzie.Descriere = r.Descriere;
             recenzie.Rating = r.Rating;

@@ -25,6 +25,11 @@ namespace Proiect.Controllers
             if (id.HasValue)
             {
                 var produs = db.Produs.Include(i => i.Recenzie).FirstOrDefault(m => m.ProdusId == id);
+                foreach(var recenzie in produs.Recenzie)
+                {
+                    recenzie.User = db.Users.FirstOrDefault(r => r.Id == recenzie.UserId);
+                   
+                }
                 return View(produs);
                
             }
@@ -66,7 +71,7 @@ namespace Proiect.Controllers
             produs.Magazine = p.Magazine;
             db.SaveChanges();
             return RedirectToAction("Index","Home");
-        }
+        } 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id)
@@ -75,6 +80,25 @@ namespace Proiect.Controllers
             db.Produs.Remove(produs);
             db.SaveChanges();
             return RedirectToAction("Index","Home");
+        }
+        [Route("{controller}/{id}")]
+        public ActionResult AtribuireMagazin(int id)
+        {
+            var magazin = db.Magazin.ToList();
+            ViewData["ProdusId"] = id;
+            ViewBag.Magazin = magazin;
+            return View(magazin);
+        }
+        [HttpPost]
+        public ActionResult Atribui(Produs p)
+        {
+            if (!ModelState.IsValid)
+                return View("AtribuireMagazin");
+            Produs produs = db.Produs.Single(s => s.ProdusId == p.ProdusId);
+            produs.MagazinId = p.MagazinId;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

@@ -5,21 +5,21 @@
 <h2>@ViewBag.Title</h2>
 @foreach (var produs in ViewBag.Produs)
 {
-<div class="panel-body">
-    @Html.Label("Denumire", "Denumire:")
-    <br />
-    <p>
-        @produs.Denumire
-    </p>
-    <br />
+    <div class="panel-body">
+        @Html.Label("Denumire", "Denumire:")
+        <br/>
+        <p>
+            @produs.Denumire
+        </p>
+        <br/>
 
-    @using (Html.BeginForm(actionName: "Details", controllerName: "Produs", method: FormMethod.Get,
-routeValues: new { id = produs.ProdusId }))
-    {
-        <button class="btn btn-primary">Detalii</button>
-    }
+        @using (Html.BeginForm(actionName: "Details", controllerName: "Produs", method: FormMethod.Get,
+    routeValues: new { id = produs.ProdusId }))
+        {
+            <button class="btn btn-primary">Detalii</button>
+        }
 
-</div>
+    </div>
 }
 
 <p><a href="/Produs/New">Adauga Produs</a></p>

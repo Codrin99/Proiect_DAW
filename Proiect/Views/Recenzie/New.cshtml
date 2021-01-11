@@ -1,4 +1,5 @@
 ﻿@model Proiect.Models.Recenzie
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "NewRecenzie";
 }
@@ -14,5 +15,6 @@
     <br />
     @Html.TextBoxFor(m => m.Rating)
     <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
+    <input type="hidden" name="UserId" value="@User.Identity.GetUserId()" />
     <button type="submit">Adauga recenzie</button>
 </form>

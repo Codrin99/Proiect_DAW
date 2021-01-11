@@ -39,6 +39,7 @@ namespace Proiect
                     userManager.AddToRole(user.Id, "Admin");
                 }
             }
+            ctx.SaveChanges();
      
         }
     }
