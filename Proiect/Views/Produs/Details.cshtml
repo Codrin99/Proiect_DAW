@@ -4,40 +4,50 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Denumire</h2>
-<p>Pret: @Model.Pret LEI</p>
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
-routeValues: new { id = @Model.ProdusId }))
-{
-    <button class="btn btn-primary">Editeaza produsul</button>
-}
-@using (Html.BeginForm(actionName: "New", controllerName: "Recenzie", method: FormMethod.Get,
-routeValues: new { id = @Model.ProdusId }))
-{
-    <button class="btn btn-primary">Adauga Recenzie</button>
-}
-@foreach (var recenzie in Model.Recenzie)
-{
-    <p>@recenzie.User.UserName</p>
-    <p>Nota: @recenzie.Rating / 10</p>
-    <p>@recenzie.Descriere</p>
-    using (Html.BeginForm(actionName: "Edit", controllerName: "Recenzie", method: FormMethod.Get,
-routeValues: new { id = recenzie.RecenzieId }))
+<h2 style="font-weight:bold;">@Model.Denumire</h2>
+<p style="font-size:18px;">Pretul produsului este de: @Model.Pret LEI</p>
+
+<div class="btn-group" role="toolbar" aria-label="Basic example">
+
+    @using (Html.BeginForm(actionName: "Edit", controllerName: "Produs", method: FormMethod.Get,
+    routeValues: new { id = @Model.ProdusId }))
     {
-        <button class="btn btn-primary">Editeaza Recenzia</button>
+        <button class="btn btn-secondary">Editeaza produsul</button>
+    }
+
+    @using (Html.BeginForm(actionName: "New", controllerName: "Magazin", method: FormMethod.Get,
+    routeValues: new { id = @Model.ProdusId }))
+    {
+        <button class="btn btn-secondary">Adauga magazin</button>
+    }
+
+    @using (Html.BeginForm(actionName: "AtribuireMagazin", controllerName: "Produs", method: FormMethod.Get,
+    routeValues: new { id = @Model.ProdusId }))
+    {
+        <button class="btn btn-secondary">Atribuie produsul unui magazin</button>
+    }
+
+</div>
+
+    @using (Html.BeginForm(actionName: "New", controllerName: "Recenzie", method: FormMethod.Get,
+    routeValues: new { id = @Model.ProdusId }))
+    {
+        <button class="btn btn-primary">Adauga Recenzie</button>
+    }
+
+
+    @foreach (var recenzie in Model.Recenzie)
+    {
+        <p>@recenzie.User.UserName</p>
+        <p>Nota: @recenzie.Rating / 10</p>
+        <p>@recenzie.Descriere</p>
+        using (Html.BeginForm(actionName: "Edit", controllerName: "Recenzie", method: FormMethod.Get,
+    routeValues: new { id = recenzie.RecenzieId }))
+        {
+            <button class="btn btn-primary">Editeaza Recenzia</button>
+        }
+        <br />
+        <br />
     }
     <br />
     <br />
-}
-<br />
-<br />
-@using (Html.BeginForm(actionName: "New", controllerName: "Magazin", method: FormMethod.Get,
-routeValues: new { id = @Model.ProdusId }))
-{
-    <button class="btn btn-primary">Adauga magazin</button>
-}
-@using (Html.BeginForm(actionName: "AtribuireMagazin", controllerName: "Produs", method: FormMethod.Get,
-routeValues: new { id = @Model.ProdusId }))
-{
-    <button class="btn btn-primary">Atribuie produsul unui magazin</button>
-}

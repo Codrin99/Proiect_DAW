@@ -1,25 +1,46 @@
 ﻿@model Proiect.Models.Produs
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Produse";
 }
-<h2>@ViewBag.Title</h2>
-@foreach (var produs in ViewBag.Produs)
-{
-    <div class="panel-body">
-        @Html.Label("Denumire", "Denumire:")
-        <br/>
-        <p>
-            @produs.Denumire
-        </p>
-        <br/>
+<h1 style="font-weight:bold;">@ViewBag.Title</h1>
 
-        @using (Html.BeginForm(actionName: "Details", controllerName: "Produs", method: FormMethod.Get,
-    routeValues: new { id = produs.ProdusId }))
+<table class="table">
+    <thead class="thead-dark">
+        <tr style="font-size:25px;">
+            <th scope="col">#</th>
+            <th scope="col">
+                @Html.Label("Denumire", "Denumire")
+            </th>
+            <th>Detalii</th>
+        </tr>
+    </thead>
+    <tbody style="font-size:16px;">
+        @foreach (var produs in ViewBag.Produs)
         {
-            <button class="btn btn-primary">Detalii</button>
+            <tr>
+                <td>@produs.ProdusId</td>
+                <td>@produs.Denumire</td>
+                <td>
+                    @using (Html.BeginForm(actionName: "Details", controllerName: "Produs", method: FormMethod.Get,
+     routeValues: new { id = produs.ProdusId }))
+                    {
+                        <button class="btn btn-light">Detalii</button>
+                    }
+                </td>
+            </tr>
+
+
         }
 
-    </div>
+        </tbody>
+</table>
+
+
+
+
+@if (User.IsInRole("Admin"))
+{
+    <p><a href="/Produs/New" style="text-decoration:none; font-size:15px;">Adauga Produs</a></p>
 }
 
-<p><a href="/Produs/New">Adauga Produs</a></p>
+

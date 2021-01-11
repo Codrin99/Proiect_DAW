@@ -10,10 +10,12 @@
     @Html.LabelFor(m => m.Descriere)
     <br />
     @Html.TextBoxFor(m => m.Descriere)
+    @Html.ValidationMessageFor(m => m.Descriere)
     <br />
     @Html.LabelFor(m => m.Rating)
     <br />
     @Html.TextBoxFor(m => m.Rating)
+    @Html.ValidationMessageFor(m => m.Rating)
     <input type="hidden" name="ProdusId" value="@ViewData["ProdusId"]" />
     <input type="hidden" name="UserId" value="@User.Identity.GetUserId()" />
     <button type="submit">Adauga recenzie</button>

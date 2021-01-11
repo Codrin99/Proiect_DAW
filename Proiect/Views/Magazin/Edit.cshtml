@@ -13,10 +13,12 @@
     @Html.LabelFor(m => m.DenumireMagazin)
     <br />
     @Html.TextBoxFor(m => m.DenumireMagazin)
+    @Html.ValidationMessageFor(m => m.DenumireMagazin)
     <br />
     @Html.LabelFor(m => m.Oras)
     <br />
     @Html.TextBoxFor(m => m.Oras)
+    @Html.ValidationMessageFor(m => m.Oras)
     <br />
     <input type="hidden" name="ProdusId" value="@Model.ProdusId" />
     <input type="hidden" name="MagazinId" value="@Model.MagazinId" />

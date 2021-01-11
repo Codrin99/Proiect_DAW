@@ -12,10 +12,12 @@
     @Html.LabelFor(m => m.Descriere)
     <br />
     @Html.TextBoxFor(m => m.Descriere)
+    @Html.ValidationMessageFor(m => m.Descriere)
     <br />
     @Html.LabelFor(m => m.Rating)
     <br />
     @Html.TextBoxFor(m => m.Rating)
+    @Html.ValidationMessageFor(m => m.Rating)
     <br />
     <input type="hidden" name="RecenzieId" value="@Model.RecenzieId" />
 
