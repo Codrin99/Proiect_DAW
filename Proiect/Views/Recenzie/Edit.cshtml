@@ -20,10 +20,11 @@
     @Html.ValidationMessageFor(m => m.Rating)
     <br />
     <input type="hidden" name="RecenzieId" value="@Model.RecenzieId" />
-
-    <button type="submit"> Salveaza modificarile</button>
-
+    <br />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Salveaza modificarile</p></button>
+    <br />
 </form>
 <form method="post" action="/Recenzie/Delete/@Model.RecenzieId">
-    <button type="submit">Sterge acesta Recenzie</button>
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Sterge aceasta recenzie</p></button>
+    <br />
 </form>

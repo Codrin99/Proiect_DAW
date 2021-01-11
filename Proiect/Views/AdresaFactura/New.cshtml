@@ -1,0 +1,38 @@
+﻿@model Proiect.Models.AdresaFactura
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Adauga o noua adresa</h2>
+
+<form method="post" action="/AdresaFactura/Create">
+
+    @Html.LabelFor(m => m.Strada)
+    <br />
+    @Html.TextBoxFor(m => m.Strada, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Strada)
+    <br />
+    @Html.LabelFor(m => m.Numar)
+    <br />
+    @Html.TextBoxFor(m => m.Numar, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Numar)
+    <br />
+    @Html.LabelFor(m => m.Oras)
+    <br />
+    @Html.TextBoxFor(m => m.Oras, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Oras)
+    <br />
+    @Html.LabelFor(m => m.Judet)
+    <br />
+    @Html.TextBoxFor(m => m.Judet, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Judet)
+    <br />
+    @Html.LabelFor(m => m.Tara)
+    <br />
+    @Html.TextBoxFor(m => m.Tara, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Tara)
+    <br />
+    <input type="hidden" name="FacturaId" value="@ViewData["FacturaId"]" />
+    <br />
+    <button type="submit" class="btn btn-dark" style="background-color:rgb(33, 33, 33);"><p style="color:white; margin-bottom:-1px;">Adauga adresa</p></button>
+</form>

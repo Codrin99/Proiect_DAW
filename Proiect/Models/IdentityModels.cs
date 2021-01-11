@@ -30,7 +30,7 @@ namespace Proiect.Models
         public DbSet<Recenzie> Recenzie { get; set; }
         public DbSet<Magazin> Magazin { get; set; }
         public DbSet<Factura> Factura { get; set; }
-
+        public DbSet<AdresaFactura> AdresaFactura { get; set; }
 
 
         public static ApplicationDbContext Create()

@@ -7,53 +7,47 @@ using System.Web.Mvc;
 
 namespace Proiect.Controllers
 {
-    public class FacturaController : Controller
+    public class AdresaFacturaController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
         // GET: Produs
         public ActionResult Index()
         {
-            List<Factura> factura = db.Factura.ToList();
-            ViewBag.Factura = factura;
             return View();
         }
         [Authorize(Roles = "Admin")]
         [Route("{controller}/{id}")]
         public ActionResult New(int id)
         {
-            ViewData["ProdusId"] = id;
-            Produs produs = db.Produs.Find(id);
-            ViewData["Pret"] = produs.Pret;
+            ViewData["FacturaId"] = id;
             return View();
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create(Factura f)
+        public ActionResult Create(AdresaFactura f)
         {
 
             if (!ModelState.IsValid)
                 return View("New", f);
-            db.Factura.Add(f);
+            db.AdresaFactura.Add(f);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
-            Factura factura = db.Factura.Find(id);
+            AdresaFactura adresafactura = db.AdresaFactura.Find(id);
             if (!User.IsInRole("Admin"))
                 return HttpNotFound("You don't have acces to modify this ");
-            return View(factura);
+            return View(adresafactura);
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Update(Factura f)
+        public ActionResult Update(AdresaFactura f)
         {
             if (!ModelState.IsValid)
                 return View("Edit", f);
-            Factura factura = db.Factura.Single(s => s.FacturaId == f.FacturaId);
-            factura.Valoare = f.Valoare;
-            factura.NumeClient = f.NumeClient;
+            AdresaFactura adresafactura = db.AdresaFactura.Single(s => s.AdresaFacturaId == f.AdresaFacturaId);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
@@ -61,17 +55,10 @@ namespace Proiect.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            Factura factura = db.Factura.Find(id);
-            db.Factura.Remove(factura);
+            AdresaFactura adresafactura = db.AdresaFactura.Find(id);
+            db.AdresaFactura.Remove(adresafactura);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
-        }
-        public ActionResult ListaFacturi()
-        {
-            var facturi = db.Factura.ToList();
-
-            ViewBag.Factura = facturi;
-            return View(facturi);
         }
     }
 }

@@ -11,31 +11,37 @@
     <thead class="thead-dark">
         <tr style="font-weight:bold; font-size:20px;">
             <th>#</th>
-            <th> Adresa facturare</th>
             <th>Nume</th>
             <th>Valaore</th>
+            <th>Adauga adresa</th>
+            <th>Editeaza</th>
+            <th>Sterge</th>
         </tr>
     </thead>
     @foreach (var factura in ViewBag.Factura)
     {
-        <tr style="font-size:16px;">
-            <td>@factura.FacturaId</td>
-            <td>@factura.Adresa</td>
-            <td>@factura.NumeClient</td>
-            <td>@factura.Valoare</td>
-            @if (User.IsInRole("Admin"))
-            {
-                <td>
-                    <form method="post" action="/Factura/Edit/@factura.FacturaId">
-                        <button type="submit" class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Editeaza factura</p></button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="/Factura/Delete/@factura.FacturaId">
-                        <button type="submit" class="btn btn-dark" style="background-color:rgb(44, 44, 44);"><p style="color:white; margin-bottom:-1px;">Sterge factura</p></button>
-                    </form>
-                </td>
-            }
-        </tr>
+<tr style="font-size:16px;">
+    <td>@factura.FacturaId</td>
+    <td>@factura.NumeClient</td>
+    <td>@factura.Valoare LEI</td>
+    @if (User.IsInRole("Admin"))
+    {
+        <td>
+            <form method="post" action="/AdresaFactura/New/@factura.FacturaId">
+                <button type="submit" class="btn btn-dark" style="background-color:rgb(122, 122, 122);"><p style="color:white; margin-bottom:-1px;">Adauga adresa</p></button>
+            </form>
+        </td>
+        <td>
+            <form method="post" action="/Factura/Edit/@factura.FacturaId">
+                <button type="submit" class="btn btn-dark" style="background-color:rgb(88, 88, 88);"><p style="color:white; margin-bottom:-1px;">Editeaza factura</p></button>
+            </form>
+        </td>
+        <td>
+            <form method="post" action="/Factura/Delete/@factura.FacturaId">
+                <button type="submit" class="btn btn-dark" style="background-color:rgb(44, 44, 44);"><p style="color:white; margin-bottom:-1px;">Sterge factura</p></button>
+            </form>
+        </td>
+    }
+</tr>
     }
 </table>

@@ -12,10 +12,9 @@ namespace Proiect.Models
         [Required]
         public string Valoare { get; set; }
         [Required]
-        public string Adresa { get; set; }
-        [Required]
         public string NumeClient { get; set; }
         public int ProdusId { get; set; }
+        public  AdresaFactura AdresaFactura { get; set; }
         public ICollection<Produs> Produse { get; set; }
 
 

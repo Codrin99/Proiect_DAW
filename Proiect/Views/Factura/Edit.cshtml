@@ -10,11 +10,7 @@
 
 
 <form method="post" action="/Factura/Update">
-    @Html.LabelFor(m => m.Adresa)
-    <br />
-    @Html.TextBoxFor(m => m.Adresa, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Adresa)
-    <br />
+
     @Html.LabelFor(m => m.NumeClient)
     <br />
     @Html.TextBoxFor(m => m.NumeClient, new { @class = "form-control" })
